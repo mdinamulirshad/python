@@ -12,9 +12,9 @@ DB_NAME = 'flaskTest'
 
 def creat_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'dev'
+    app.config['SECRET_KEY'] = 'secret'
     # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:root123@localhost/{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://user:password@localhost/{DB_NAME}'
 
     db.init_app(app)
     
