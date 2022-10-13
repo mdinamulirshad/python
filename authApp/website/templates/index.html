@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<style>
+    #css_form {
+        display: none;
+    }
+
+    #html_form {
+        display: block;
+    }
+</style>
+
+
+
+<div class="container">
+    <form action="" method="post">
+        <label for="html">HTML</label>
+        <input type="radio" id="togle" name="fav_language" value="html">
+        <label for="css">CSS</label>
+        <input type="radio" id="togle" name="fav_language" value="css">
+    </form>
+</div>
+
+<div class="container">
+    <form action="" method="post" id="html_form" class="unhide">
+        <h3>HTML form</h3>
+        <input type="text" value="Name">
+        <input type="email" name="email" id="" value="Email">
+        <input type="submit">
+    </form>
+</div>
+
+<div class="container">
+    <form action="" method="post" id="css_form" class="hide">
+        <h3>CSS form</h3>
+        <input type="text" value="Name">
+        <input type="email" name="email" id="" value="Email">
+        <input type="submit">
+    </form>
+</div>
+
+<script>
+
+    let togle = document.querySelectorAll('#togle');
+    let htmlForm = document.querySelector('#html_form');
+    let cssForm = document.querySelector('#css_form');
+    let hide = document.querySelector('.hide');
+    let unhide = document.querySelector('.unhide');
+
+
+
+
+    togle.forEach(function tog(tog) {
+        tog.addEventListener('change', formChange)
+
+        function formChange() {
+            console.log(tog.value)
+            if (tog.value === "css") {
+                cssForm.style.display = "block"
+                htmlForm.style.display = "none"
+            }
+            else {
+                cssForm.style.display = "none"
+                htmlForm.style.display = "block"
+            }
+        }
+    })
+
+
+</script>
+{% endblock %}
